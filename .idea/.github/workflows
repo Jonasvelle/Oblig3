@@ -1,1 +1,26 @@
+name: Run pytest
+
+on:
+  push:
+    branches:
+      - main  # Change this to the default branch of your repository
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9.13
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt  # Replace with your actual requirements file
+
+    - name: Run pytest
+      run: pytest
 
